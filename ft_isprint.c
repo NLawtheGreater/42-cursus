@@ -9,5 +9,17 @@
 /*   Updated: 2022/09/02 17:14:00 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
+#include <stdio.h>
 
 
+int ft_isprint(int c)
+{
+	return(c >= 32 && c <= 126);
+}
+
+int main()
+{
+	printf("%u\n",ft_isprint(127));
+	printf("%u",ft_isprint(52));	
+}

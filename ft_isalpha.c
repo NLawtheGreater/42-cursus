@@ -9,5 +9,18 @@
 /*   Updated: 2022/09/02 17:13:18 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
+#include <stdio.h>
 
+
+int ft_isalpha(int c)
+{
+	return((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+}
+
+int main()
+{
+	printf("%u\n",ft_isalpha(52));
+	printf("%u",ft_isalpha(68));	
+}
 

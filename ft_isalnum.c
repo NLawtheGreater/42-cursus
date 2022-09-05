@@ -9,5 +9,18 @@
 /*   Updated: 2022/09/02 16:14:00 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
+#include <stdio.h>
 
+
+int ft_isalnum(int c)
+{
+	return((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c<= 'z'));
+}
+
+int main()
+{
+	printf("%u\n",ft_isalnum(110));
+	printf("%u",ft_isalnum(78));	
+}
 
