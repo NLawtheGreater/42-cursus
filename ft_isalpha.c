@@ -22,5 +22,6 @@ int main()
 {
 	printf("%u\n",ft_isalpha(52));
 	printf("%u",ft_isalpha(68));	
+	return(0);
 }
 
