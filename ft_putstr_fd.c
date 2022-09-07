@@ -12,21 +12,22 @@
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+void	ft_putstr_fd(char *character, int fd)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != 0)
+	while (character[i] != 0)
 	{
-		write(1, &str[i], 1);
+		write(fd, &character[i], 1);
 		i++;
 	}
 }
 
-/*void	ft_putstr(char *str);
-int	main()
+/*int main(int argc, char **argv)
 {
-	ft_putstr("length");
-	return(0);
-}*/
+	int fd 
+	fd = open("test.txt",O_RDWR);
+	ft_putstr_fd(argv[1], fd);
+}
+*/

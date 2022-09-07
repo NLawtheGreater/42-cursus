@@ -12,9 +12,9 @@
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putnbr(int nb)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	char	c;
+	char	buf;
 
 	if (nb != -2147483648)
 	{
@@ -24,18 +24,10 @@ void	ft_putnbr(int nb)
 			nb *= -1;
 		}
 		if (nb >= 10)
-			ft_putnbr(nb / 10);
-		c = '0' + (nb % 10);
-		write(1, &c, 1);
+			ft_putnbr_fd(nb / 10, fd);
+		buf = '0' + (nb % 10);
+		write(fd, &buf, 1);
 	}
 	else
-		write(1, "-2147483648", 11);
+		write(fd, "-2147483648", 11);
 }
-
-/*void	ft_putnbr(int nbr);
-int	main()
-{
-	ft_putnbr(25);
-	ft_putnbr(99);	ft_putnbr(0); 	ft_putnbr(-25);
-	return(0);
-}*/

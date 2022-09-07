@@ -10,4 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+#include <unistd.h>
 
+void	ft_putstr_fd(char *character, int fd)
+{
+	int	i;
+
+	i = 0;
+	while (character[i] != 0)
+	{
+		write(fd, &character[i], 1);
+		i++;
+	}
+    write(fd,"/n",1);
+}
+
+/*int main(int argc, char **argv)
+{
+	int fd 
+	fd = open("test.txt",O_RDWR);
+	ft_putstr_fd(argv[1], fd);
+}
+*/

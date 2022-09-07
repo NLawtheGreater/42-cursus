@@ -12,13 +12,7 @@
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	ft_putchar_fd(char buf, int fd)
 {
-	write(1, &c, 1);
+	write(fd, &buf, 1);
 }
-/* int main(void)
-	{
-	ft_putchar();
-	return (0);
-	}
-     	*/
