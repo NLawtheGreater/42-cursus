@@ -19,7 +19,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	unsigned int	k;
 
 	k = 0;
-	while (dest[++k] != '\0')
+	while (src[++k] != '\0')
 	{
 	}
 	k--;
@@ -36,11 +36,13 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 
 int	main()
 {
-	char	dest;
+	char	dest[7];
 	char	src[10] = "thank you!";
-	unsigned int	i = ft_strlcpy(&dest, &src[0], 7);
-	unsigned int	k = strlcpy (&dest, &src[0], 7);
+	char	dest1[7];
+	char	src1[10] = "thank you!";
 
-	printf("%u\n%s\n", i, &dest);
-	printf("%u\n%s\n", k, &dest);
+	unsigned int	a = ft_strlcpy(dest, src, 7);
+	unsigned int	b = strlcpy (dest1, src1, 7);
+	printf("%u\n%s\n", a, dest);
+	printf("%u\n%s\n", b, dest1);
 }

@@ -24,9 +24,10 @@ int	ft_strlen(char *str)
 	}
 	return (len);
 }
-int main()
+/*int main()
 {
 	char 	x[] = "Thereis19characters";
 	
 	printf("%d", ft_strlen(x));
 }
+*/
