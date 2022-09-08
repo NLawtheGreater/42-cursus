@@ -80,17 +80,13 @@ int	rec_atoi(char *str, int start, int negcount)
 		sigma += (str[start + i] - '0') * ft_power(length - 1 - i);
 		i++;
 	}
-	if (negcount % 2 == 0)
-		return (sigma);
-	else
-		return (-1 * sigma);
 }
 
 int	ft_atoi(char *str)
 {
 	return (rec_atoi(str, 0, 0));
 }
-/*int	ft_atoi(char *str);
+int	ft_atoi(char *str);
 int	main()
 {
 	int result = ft_atoi("\t 344dfgdf_-+");
@@ -101,4 +97,4 @@ int	main()
 	printf("%d\n", result);
 
 	return(0);
-}*/
+}
