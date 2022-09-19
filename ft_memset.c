@@ -11,3 +11,21 @@
 /* ************************************************************************** */
 #include "libft.h"
 
+void			*ft_memset(void *b, int c, size_t len)
+{
+    size_t ind;
+    if (c < 0)
+        c *= -1;
+    for (ind = 0; ind < len; ind++)
+    {
+        *(char*)(b + ind) = c;
+    }
+    return (b);
+    /*ind = 0
+    while (ind < len)
+    {
+        (char*)b;
+        *(b + ind) = c;
+        ind++;
+    }*/
+}

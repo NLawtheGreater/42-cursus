@@ -11,3 +11,15 @@
 /* ************************************************************************** */
 #include "libft.h"
 
+void			*ft_memmove(void *dst, const void *src, size_t len)
+{
+    size_t ind; 
+    char  temp[len];
+    // Copy data from src[] to temp[]
+    for (ind = 0; ind<len; ind++)
+        temp[ind] = *(char*)(src + ind);
+    // Copy data from temp[] to dst[]
+    for (ind = 0; ind<len; ind++)
+        *(char*)(dst + ind) = temp[ind];
+    return (dst);
+}
