@@ -6,7 +6,7 @@ SRCS	= ${addprefix ${SRCDIR}, ${SRCLIST}}
 
 OBJS	= ${SRCS:.c=.o}
 
-INCH	= libft.h
+INCDIR	= headers/
 
 CC	= gcc
 
@@ -17,10 +17,10 @@ RM	= rm -f
 NAME	= libft.a
 
 .c.o:
-	${CC} ${CFLAGS} -include${INCH} -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -I${INCDIR} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
-	ar -crs ${NAME} ${OBJS}
+	ar crs ${NAME} ${OBJS}
 
 all:	${NAME}
 
