@@ -1,5 +1,5 @@
 /* ************************************************************************** */
-/*                                                                            */
+	/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
@@ -31,11 +31,13 @@ char	*ft_strdup(char *src)
 	dst = malloc(ft_strlen(src) + 1);
 	if (dst == NULL)
 		return (0);
+	//copy string from src until end of src
 	while (src[i] != '\0')
 	{
 		dst[i] = src[i];
 		i++;
 	}
+	//terminate will null
 	dst[i] = '\0';
 	return (dst);
 }

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "libft.h"
 
+//*check "The comparison is done using unsigned characters, so that \\200' is greater than \0'."
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	k;
