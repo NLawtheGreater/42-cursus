@@ -10,103 +10,77 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdlib.h>
+#include <stdio.h>
 
-int	in_charset(char c, char *charset)
+/*
+** LIBRARY: N/A
+** SYNOPSIS: split string, with specified character as delimiter, into an array
+**			of strings
+**
+** DESCRIPTION:
+** 		Allocates (with malloc(3)) and returns an array of strings obtained by
+**	splitting ’s’ using the character ’c’ as a delimiter. The array must be
+**	ended by a NULL pointer.
+*/
+
+char		**ft_split(char const *s, char c)
 {
-	while (*charset != '\0')
+	size_t	i;
+	size_t	j;
+	int		switch;
+	char	**split;
+
+    //check if string or memallocation with number of words is NULL, if yes, return NULL
+	if (!s || !(split = malloc((count_words(s, c) + 1) * sizeof(char *))))
+		return (NULL);
+	i = 0;
+	j = 0;
+	switch = -1;
+    //Search through s using index i
+	while (i <= ft_strlen(s))
 	{
-		if (c == *charset)
-			return (1);
-		charset++;
+        //look for the first instance s[i] is unequal to c: the start of the word. switch turns on and record position of start of word
+		if (s[i] != c && switch < 0)
+			switch = i;
+		//look for the first instances[i] is equal to c (check switch for on): the end of the word.
+        else if ((s[i] == c || i == ft_strlen(s)) && switch >= 0)
+		{
+            //record the word into split with (*check 2d array) 
+			strlcpy(split[j++], s[index], i);
+            //switch turns off
+			switch = -1;
+		}
+		i++;
 	}
-	return (0);
+    /*closes 2d array with NULL, necessary?
+	split[j] = 0;*/
+	return (split);
 }
 
-int	count_words(char *str, char *charset)
+static int	count_words(const char *str, char c)
 {
-	int	in_word;
-	int	word_count;
+	int i;
+	int switch;
 
-	in_word = 0;
-	word_count = 0;
-	while (*str != '\0')
+	i = 0;
+	switch = 0;
+    //look through string
+	while (*str)
 	{
-		if (!in_word && !in_charset(*str, charset))
+        //check if it is not like c & switch is off
+		if (*str != c && switch == 0)
 		{
-			in_word = 1;
-			word_count++;
+            //turn switch on, count word
+			trigger = 1;
+			i++;
 		}
-		else if (in_word && in_charset(*str, charset))
-		{
-			in_word = 0;
-		}
+        //finds c, turns switch off
+		else if (*str == c)
+			switch = 0;
 		str++;
 	}
-	return (word_count);
-}
-
-int	word_length(char *str, char *charset)
-{
-	int	count;
-
-	count = 0;
-	while (*str != '\0' && !in_charset(*str, charset))
-	{
-		count++;
-		str++;
-	}
-	return (count);
-}
-
-void	split_words(char **words, char *str, char *charset)
-{
-	int		in_word;
-	int		word_count;
-	char	*word_iter;
-
-	in_word = 0;
-	word_count = 0;
-	while (*str != '\0')
-	{
-		if (!in_charset(*str, charset))
-		{
-			if (!in_word)
-			{
-				words[word_count] = malloc(word_length(str, charset));
-				word_iter = words[word_count];
-				word_count++;
-			}
-			in_word = 1;
-			*word_iter = *str;
-			word_iter++;
-		}
-		else if (in_charset(*str, charset))
-			in_word = 0;
-		*(word_iter + 1) = '\0';
-		str++;
-	}
-}
-
-char	**ft_split(char *str, char *charset)
-{
-	char	**words;
-	int		word_count;
-
-	if (str == NULL || charset == NULL)
-	{
-		words = malloc(sizeof(char *));
-		words[0] = NULL;
-		return (words);
-	}
-	word_count = count_words(str, charset);
-	words = malloc(sizeof(char *) * (word_count + 1));
-	if (words != NULL)
-	{
-		split_words(words, str, charset);
-		words[word_count] = NULL;
-	}
-	return (words);
+    //return word
+	return (i);
 }
 
 /*
@@ -123,7 +97,9 @@ void	print_words(char **words)
 
 void	test(char *str, char *charset)
 {
+	//print argument 1 and 2
 	printf("%s\n%s\n", str, charset);
+	//print split array 1 row at a time
 	print_words(ft_split(str, charset));
 }
 

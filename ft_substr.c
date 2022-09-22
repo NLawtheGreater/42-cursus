@@ -29,6 +29,8 @@ char			*ft_substr(char const *s, unsigned int start, size_t len)
     {
         ptr[j] = s[k];
     }
+    //add NULL to end substring
+    ptr[j] = NULL;
      //*check NULL terminate substring?
      return(ptr);
 }

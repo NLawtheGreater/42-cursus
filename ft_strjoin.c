@@ -10,34 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include<stdlib.h>
+#include<stdio.h>
+
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str;
+	char*	ptr;
 	int		i;
-	int		j;
-	int		c;
-
-	str = (char *)malloc(sizeof(strs));
-	i = 0;
-	c = 0;
-	while (i < size)
-	{
-		j = 0;
-		while (strs[i][j] != '\0')
-		{
-			str[c++] = strs[i][j++];
-		}
-		j = 0;
-		while (sep[j] != '\0' && i != size - 1)
-		{
-			str[c++] = sep[j++];
-		}
-		i++;
-	}
-	str[c] = '\0';
-	return (str);
+	int		k;
+	//malloc ptr with size of s1+s2
+	ptr = (char *)malloc(sizeof(char)*(ft_strlen((char*)s1)+ft_strlen((char*)s2)));
+	//return NULL if allocation fail
+	if (!ptr)
+		return('\0');
+	//copy s1 to ptr with for loop, same positions with i
+	for (i = 0; !s1[i]; i++) 
+		ptr[i] = s1[i];
+	//continue to copy s2 to ptr with for loop
+	for (k = 0; !s2[k]; k++, i++) 
+		ptr[i] = s2[k];
+	//*check NULL terminate string?
+	ptr[i] = '\0';
+	//return new string
+	return (ptr);
 }
 
 /*#include<stdio.h>
