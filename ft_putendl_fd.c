@@ -9,26 +9,30 @@
 /*   Updated: 2022/09/02 17:16:10 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/* Synopsis:
+    Use write to output string s to required file descriptor(fd), followed by /n
+** Description:
+    Outputs the string ’s’ to the given file descriptor
+	followed by a newline.*/
+
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putstr_fd(char *character, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 
-	i = 0;
-	while (character[i] != 0)
+	for (i = 0; !s[i]; i++)
 	{
-		write(fd, &character[i], 1);
-		i++;
+		write(fd, &s[i], 1);
 	}
-    write(fd,"/n",1);
+    write(fd,"\n",1);
 }
 
 /*int main(int argc, char **argv)
 {
 	int fd 
 	fd = open("test.txt",O_RDWR);
-	ft_putstr_fd(argv[1], fd);
+	ft_putendl_fd(argv[1], fd);
 }
 */

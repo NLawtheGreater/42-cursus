@@ -87,7 +87,7 @@ int	ft_atoi(char *str)
 	return (rec_atoi(str, 0, 0));
 }
 int	ft_atoi(char *str);
-int	main()
+/*int	main()
 {
 	int result = ft_atoi("\t 344dfgdf_-+");
 	printf("%d\n", result);
@@ -97,4 +97,4 @@ int	main()
 	printf("%d\n", result);
 
 	return(0);
-}
+}*/

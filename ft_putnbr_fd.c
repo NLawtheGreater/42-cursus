@@ -9,25 +9,35 @@
 /*   Updated: 2022/09/02 17:16:27 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/* Synopsis:
+    Use write to output integer n to required file descriptor(fd)
+** Description:
+    Outputs the integer ’n’ to the given file
+	descriptor.*/
+
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putnbr_fd(int nb, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	char	buf;
 
-	if (nb != -2147483648)
+	//check for overbound
+	if (n != -2147483648)
 	{
-		if (nb < 0)
+		//check negative int, write negative
+		if (n < 0)
 		{
-			write(1, "-", 1);
-			nb *= -1;
+			write(fd, "-", 1);
+			n *= -1;
 		}
-		if (nb >= 10)
-			ft_putnbr_fd(nb / 10, fd);
+		//write int with recursive function, starting from front, 1 digit at a time
+		if (n >= 10)
+			ft_putnbr_fd(n / 10, fd);
 		buf = '0' + (nb % 10);
 		write(fd, &buf, 1);
 	}
+	//write boundary if overbound
 	else
 		write(fd, "-2147483648", 11);
 }

@@ -9,6 +9,12 @@
 /*   Updated: 2022/09/02 17:16:42 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/* Synopsis:
+    Use write to output string s to required file descriptor(fd)
+** Description:
+    Outputs the string ’s’ to the given file
+	descriptor.*/
+
 #include "libft.h"
 #include <unistd.h>
 
@@ -16,11 +22,9 @@ void	ft_putstr_fd(char *character, int fd)
 {
 	int	i;
 
-	i = 0;
-	while (character[i] != 0)
+	for (i =0; !character[i]; i++)
 	{
 		write(fd, &character[i], 1);
-		i++;
 	}
 }
 
