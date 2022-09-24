@@ -22,33 +22,56 @@
 **	splitting ’s’ using the character ’c’ as a delimiter. The array must be
 **	ended by a NULL pointer.
 */
+static int	count_words(const char *str, char c)
+{
+	int i;
+	int	trig;
 
-char		**ft_split(char const *s, char c)
+	i = 0;
+	trig = 0;
+    //look through string
+	while (*str)
+	{
+        //check if it is not like c & switch is off
+		if (*str != c && trig == 0)
+		{
+            //turn switch on, count word
+			trig = 1;
+			i++;
+		}
+        //finds c, turns switch off
+		else if (*str == c)
+			trig = 0;
+		str++;
+	}
+	return (i);
+}
+
+char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
-	int		switch;
+	int	trig;
 	char	**split;
 
-    //check if string or memallocation with number of words is NULL, if yes, return NULL
 	if (!s || !(split = malloc((count_words(s, c) + 1) * sizeof(char *))))
 		return (NULL);
 	i = 0;
 	j = 0;
-	switch = -1;
+	trig = -1;
     //Search through s using index i
-	while (i <= ft_strlen(s))
+	while (i <= ft_strlen((char *)s))
 	{
         //look for the first instance s[i] is unequal to c: the start of the word. switch turns on and record position of start of word
-		if (s[i] != c && switch < 0)
-			switch = i;
+		if (s[i] != c && trig < 0)
+			trig = i;
 		//look for the first instances[i] is equal to c (check switch for on): the end of the word.
-        else if ((s[i] == c || i == ft_strlen(s)) && switch >= 0)
+        else if ((s[i] == c || i == ft_strlen((char *)s)) && trig >= 0)
 		{
             //record the word into split with (*check 2d array) 
-			strlcpy(split[j++], s[index], i);
+			ft_strlcpy(split[j++], (char *)&s[i], i);
             //switch turns off
-			switch = -1;
+			trig = -1;
 		}
 		i++;
 	}
@@ -56,33 +79,8 @@ char		**ft_split(char const *s, char c)
 	split[j] = 0;*/
 	return (split);
 }
-
-static int	count_words(const char *str, char c)
-{
-	int i;
-	int switch;
-
-	i = 0;
-	switch = 0;
-    //look through string
-	while (*str)
-	{
-        //check if it is not like c & switch is off
-		if (*str != c && switch == 0)
-		{
-            //turn switch on, count word
-			trigger = 1;
-			i++;
-		}
-        //finds c, turns switch off
-		else if (*str == c)
-			switch = 0;
-		str++;
-	}
     //return word
-	return (i);
-}
-
+    //check if string or memallocation with number of words is NULL, if yes, return NULL
 /*
 #include <stdio.h>
 

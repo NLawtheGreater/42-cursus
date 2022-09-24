@@ -14,15 +14,14 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void*	ptr;
+	void	*ptr;
 	ptr = malloc(count * size);
 	if (ptr == NULL)
 		return (NULL);
 	ft_bzero(ptr, (count * size));
-	return(ptr);
+	return (ptr);
 }
 //check memory allocation, returns NULL if fail
-	//using malloc to allocate memory
-	//using bzero to make zero
-	//return void pointer
-	
+//using malloc to allocate memory
+//using bzero to make zero
+//return void pointer

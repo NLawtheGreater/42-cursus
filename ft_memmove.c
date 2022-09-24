@@ -13,13 +13,25 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	ind; 
+	size_t	ind;
 	char	temp[len];
-    for (ind = 0; ind < len; ind++)
-        temp[ind] = *(char *)(src + ind);
-    for (ind = 0; ind < len; ind++)
-        *(char *)(dst + ind) = temp[ind];
-    return (dst);
+
+	ind = 0;
+	while (ind < len)
+	{
+		temp[ind] = *(char *)(src + ind);
+		ind++;
+	}
+	ind = 0;
+	while (ind < len)
+	{
+		*(char *)(dst + ind) = temp[ind];
+		ind++;
+	}
+	return (dst);
 }
-    // Copy data from src[] to temp[]
-    // Copy data from temp[] to dst[]
+/*for (ind = 0; ind < len; ind++)
+		*temp[ind] = *(char *)(src + ind);
+	for (ind = 0; ind < len; ind++)*/
+// Copy data from src[] to temp[]
+// Copy data from temp[] to dst[]

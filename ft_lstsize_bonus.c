@@ -1,5 +1,5 @@
 /*
-    Counts the number of nodes in a list.
+    Counts the number of ndes in a list.
 */
 #include "libft.h"
 

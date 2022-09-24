@@ -12,19 +12,17 @@
 #include "libft.h"
 #include <stdio.h>
 
-int	atoilen(char *snum, int start)
+static atoilen(char *snum, int start)
 {
 	int	length;
 
 	length = 0;
 	while (snum[start + length] >= '0' && snum[start + length] <= '9')
-	{
-		length++;
-	}
-	return (length);
+			length++;
+			return (length);
 }
 
-int	ft_power(int power)
+static ft_power(int power)
 {
 	if (power == 0)
 		return (1);
@@ -32,7 +30,7 @@ int	ft_power(int power)
 		return (10 * ft_power(power - 1));
 }
 
-int	rec_atoi2(char *str, int start, int negcount)
+static rec_atoi2(char *str, int start, int negcount)
 {
 	int	i;
 	int	sigma;
@@ -58,7 +56,7 @@ int	rec_atoi2(char *str, int start, int negcount)
 		return (-1 * sigma);
 }
 
-int	rec_atoi(char *str, int start, int negcount)
+static	rec_atoi(char *str, int start, int negcount)
 {
 	int	i;
 	int	sigma;
@@ -87,8 +85,8 @@ int	ft_atoi(char *str)
 {
 	return (rec_atoi(str, 0, 0));
 }
-int	ft_atoi(char *str);
-/*int	main()
+/*int	ft_atoi(char *str);
+int	main()
 {
 	int result = ft_atoi("\t 344dfgdf_-+");
 	printf("%d\n", result);
