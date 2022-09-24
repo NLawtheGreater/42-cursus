@@ -32,7 +32,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (*s1 && ft_strchr(set, *s1))
 		s1++;
     //find strlen of s1 from position recorded (start of trim area) to the end of string 
-	i = ft_strlen(s1);
+	i = ft_strlen((char*)s1);
     //search whether ANY ONE of set matches with the S1 using strchr, moves up s1 until there is no match, s1 no match location is recorded (end of trim area)
 	while (i && ft_strchr(set, s1[i]))
 		i--;

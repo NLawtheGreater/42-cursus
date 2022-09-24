@@ -14,7 +14,6 @@
 ** Description:
     Outputs the character ’c’ to the given file
 	descriptor.*/
-
 #include "libft.h"
 #include <unistd.h>
 

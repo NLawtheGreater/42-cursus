@@ -12,15 +12,13 @@
 #include "libft.h"
 #include <stdio.h>
 
-
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-	return(c >= '0' && c <= '9');
+	return (c >= '0' && c <= '9');
 }
 
-int main()
+/*int main()
 {
 	printf("%u\n",ft_isdigit(8));
 	printf("%u",ft_isdigit(52));	
-}
-
+}*/

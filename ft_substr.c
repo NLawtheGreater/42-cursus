@@ -20,9 +20,9 @@ char			*ft_substr(char const *s, unsigned int start, size_t len)
     //allocates with malloc
     ptr = malloc(len*sizeof(char));
     //NULL if allocation fails
-    if (*ptr == '\0')
+    if (ptr == NULL)
     {
-        return('\0');
+        return(NULL);
     }
     //copying to pointer using start as the index and stopping by the end of s or maximum len
     for ( k = (start - 1), j = 0; j < len || !s[k]; k++, j++)       
@@ -30,7 +30,7 @@ char			*ft_substr(char const *s, unsigned int start, size_t len)
         ptr[j] = s[k];
     }
     //add NULL to end substring
-    ptr[j] = NULL;
+    ptr[j] = '\0';
      //*check NULL terminate substring?
      return(ptr);
 }

@@ -28,7 +28,7 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s || !f)
 		return (NULL);
 	//copy string s to str and check allocation
-    str = ft_strdup(s);
+    str = ft_strdup((char*)s);
 	if (!str)
 		return (NULL);
     //apply function f to str with for loop, then return

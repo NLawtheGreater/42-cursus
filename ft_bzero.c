@@ -11,19 +11,21 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    size_t  ind;
-    //ind = 0
-    if(n != 0)
-    for(ind = 0; ind < n; ++ind)
-    {
-        *(char*)(s + ind) = 0;
-    }
-    /*while (ind < n)
-    {
-        (char*) s;
-        *(s + ind) = 0;
-        i++;
-    } */
+	size_t	ind;
+
+	ind = 0;
+	if (n != 0)
+	{
+		while (ind < n)
+		{
+			*(char *)(s + ind) = 0;
+			ind++;
+		}
+	}
 }
+/*for(ind = 0; ind < n; ++ind)
+{
+*(char*)(s + ind) = 0;
+}*/

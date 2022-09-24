@@ -19,13 +19,13 @@
 
 #include "libft.h"
 
-void ft_striteri(char *s, void (*f)(unsigned int, char*));
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
     unsigned int	i;
 
     //return NULL, if s or f is NULL
 	if (!s || !f)
-		return ();
+		return;
     //apply function f to s with for loop (address of array location given)
 	for (i = 0; !s[i]; i++)
 	{

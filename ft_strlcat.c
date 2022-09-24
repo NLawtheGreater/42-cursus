@@ -11,40 +11,27 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-int ft_strlen(char *str)
+size_t	ft_strlcat(char *dst, char *src, size_t size)
 {
-	int len;
+	unsigned int	d_len;
+	int				offset;
+	unsigned int	index;
 
-	len = 0;
-	while (*str != '\0')
-	{
-		str++;
-		len++;
-	}
-	return (len);
-}
-
-unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
-{
-	unsigned int d_len;
-	int offset;
-	unsigned int index;
-
-	d_len = ft_strlen(dest);
+	d_len = ft_strlen(dst);
 	offset = d_len;
 	index = 0;
 	if (size == 0 || size <= d_len)
 		return (ft_strlen(src) + size);
 	while (src[index] != '\0' && index < (size - d_len - 1))
 	{
-		dest[offset] = src[index]; 
+		dst[offset] = src[index];
 		offset++;
 		index++;
 	}
-	dest[offset] = '\0';
+	dst[offset] = '\0';
 	return (ft_strlen(src) + d_len);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -72,4 +59,4 @@ int main(void)
 	printf("%u - %s\n", ft_strlcat(d3, s3, 13), d3);
 	printf("%u - %s\n", strlcat(jon1, test1, 6), jon1);
 	printf("%u - %s\n", ft_strlcat(jon, test, 6), jon);
-}
+}*/

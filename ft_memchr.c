@@ -11,22 +11,30 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-void			*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    size_t ind;
-    //converting c into unsigned char
-    unsigned char   check;
-    check = c;
-    //go through *s from beginning
-    for(ind = 0; ind < n; ind++)
-    {
-        //check for c (character) 
-        if (*(unsigned char*)(s+ind) == check)
-        {
-            //return matching pointer
-            return ((void*)(s+ind));
-        } 
-    }
-    //not finding, return NULL
-    return(NULL);
+	size_t			ind;
+	unsigned char	check;
+
+	check = c;
+	ind = 0;
+	while (ind < n)
+	{
+		if (*(unsigned char *)(s + ind) == check)
+			return ((void *)(s + ind));
+		ind++;
+	}
+	return (NULL);
 }
+//converting c into unsigned char
+				//go through *s from beginning
+	/*for (ind = 0; ind < n; ind++)
+	{
+								if (*(unsigned char *)(s+ind) == check)
+								{
+										return ((void *)(s+ind));
+								} 
+				}*/
+								//check for c (character) 
+												//return matching pointer
+				//not finding, return NULL

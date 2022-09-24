@@ -12,15 +12,13 @@
 #include "libft.h"
 #include <stdio.h>
 
-
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-	return(c >= 0 && c <= 127);
+	return (c >= 0 && c <= 127);
 }
 
-int main()
+/*int main()
 {
 	printf("%u\n",ft_isascii(8));
 	printf("%u",ft_isascii(132));	
-}
-
+}*/

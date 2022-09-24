@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-//*check ft_strlen
-size_t			ft_strlen(const char *s);
 char			*ft_strnstr(const char *haystack, \
 		const char *needle, size_t len)
         {

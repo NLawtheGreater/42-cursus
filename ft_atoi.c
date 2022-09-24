@@ -80,6 +80,7 @@ int	rec_atoi(char *str, int start, int negcount)
 		sigma += (str[start + i] - '0') * ft_power(length - 1 - i);
 		i++;
 	}
+	return(sigma);
 }
 
 int	ft_atoi(char *str)

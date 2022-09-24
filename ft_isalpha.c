@@ -12,16 +12,13 @@
 #include "libft.h"
 #include <stdio.h>
 
-
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-	return((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }
-
-int main()
+/*int main()
 {
 	printf("%u\n",ft_isalpha(52));
 	printf("%u",ft_isalpha(68));	
 	return(0);
-}
-
+}*/

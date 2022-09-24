@@ -54,7 +54,7 @@ char	*ft_itoa(int n)
     if (n < 0)
 		res[0] = '-';
     //copy unsigned version of n, with ternaty check
-    cp =  n<0 ? -1*n : n
+    cp =  n<0 ? -1*n : n;
 	//loop and record int into string, using ASCII representation of int. Use BOOLEAN result of negative n to control loop
     while (i >= (n < 0))
 	{

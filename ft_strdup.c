@@ -1,5 +1,5 @@
 /* ************************************************************************** */
-	/*                                                                            */
+/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
@@ -12,16 +12,6 @@
 #include "libft.h"
 #include<stdlib.h>
 
-int	ft_strlen(char *str)
-{
-	int	count;
-
-	count = 0;
-	while (str[count] != '\0')
-		count++;
-	return (count);
-}
-
 char	*ft_strdup(char *src)
 {
 	int		i;
@@ -31,17 +21,16 @@ char	*ft_strdup(char *src)
 	dst = malloc(ft_strlen(src) + 1);
 	if (dst == NULL)
 		return (0);
-	//copy string from src until end of src
 	while (src[i] != '\0')
 	{
 		dst[i] = src[i];
 		i++;
 	}
-	//terminate will null
 	dst[i] = '\0';
 	return (dst);
 }
-
+	//copy string from src until end of src
+	//terminate will null
 /*#include<stdio.h>
 #include<string.h>
 
@@ -60,4 +49,3 @@ int		main(void)
 	printf("ft : alloc : $%s$ @ %p\n", allocated, allocated); 
 	//dst string and address with ft_strdup
 }*/
-

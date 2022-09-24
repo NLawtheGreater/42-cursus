@@ -14,7 +14,6 @@
 ** Description:
     Outputs the integer ’n’ to the given file
 	descriptor.*/
-
 #include "libft.h"
 #include <unistd.h>
 
@@ -22,22 +21,23 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	char	buf;
 
-	//check for overbound
 	if (n != -2147483648)
 	{
-		//check negative int, write negative
 		if (n < 0)
 		{
 			write(fd, "-", 1);
 			n *= -1;
 		}
-		//write int with recursive function, starting from front, 1 digit at a time
 		if (n >= 10)
 			ft_putnbr_fd(n / 10, fd);
-		buf = '0' + (nb % 10);
+		buf = '0' + (n % 10);
 		write(fd, &buf, 1);
 	}
-	//write boundary if overbound
 	else
 		write(fd, "-2147483648", 11);
 }
+
+//check for overbound
+//check negative int, write negative
+/*write int with recursive function, starting from front, 1 digit at a time*/
+		//write boundary if overbound
