@@ -22,9 +22,11 @@ void	ft_putstr_fd(char *character, int fd)
 {
 	int	i;
 
-	for (i =0; !character[i]; i++)
+	i = 0;
+	while(character[i])
 	{
 		write(fd, &character[i], 1);
+		i++;
 	}
 }
 
