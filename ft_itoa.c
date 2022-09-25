@@ -18,7 +18,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-    int	ft_count(int n)
+static int	ft_count(int n)
 {
 	int	i;
 
@@ -36,26 +36,31 @@
 	return (i);
 }
 
+/*	1.count char amount
+	2.malloc with char count and check
+	3.add null
+	4.check negative sign, add negative sign accordingly
+    5.copy unsigned version of n, with if negative check
+	6.loop and record int into string, using ASCII representation 
+		of int. Use BOOLEAN result of negative n to control loop
+*/
 char	*ft_itoa(int n)
 {
 	int				i;
 	unsigned int	cp;
 	char			*res;
 
-    //count char amount
 	i = ft_count(n) - 1;
-	//malloc with char count and check
     res = malloc(sizeof(char) * (i + 1));
 	if (!res)
 		return (NULL);
-	//add null
     res[i + 1] = '\0';
-	//check negative sign, add negative sign accordingly
     if (n < 0)
 		res[0] = '-';
-    //copy unsigned version of n, with ternaty check
-    cp =  n<0 ? -1*n : n;
-	//loop and record int into string, using ASCII representation of int. Use BOOLEAN result of negative n to control loop
+    if (n < 0)
+		cp = -1*n;
+	else
+		cp = n;
     while (i >= (n < 0))
 	{
 		res[i] = (cp % 10) + '0';

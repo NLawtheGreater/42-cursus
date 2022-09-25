@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                        :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,13 +11,14 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-//*check "The comparison is done using unsigned characters, so that \\200' is greater than \0'."
+/**check "The comparison is done using unsigned characters, so 
+that \\200' is greater than \0'."*/
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int	k;
 
 	k = 0;
-	while ((s1[k]  || s2[k])  && k < n)
+	while ((s1[k] || s2[k]) && k < n)
 	{
 		if (s1[k] != s2[k])
 		{

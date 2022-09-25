@@ -9,28 +9,39 @@
 /*   Updated: 2022/09/02 17:19:25 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*Description:
+	Allocates (with malloc(3)) and returns a substring
+	from the string ’s’.
+	The substring begins at index ’start’ and is of
+	maximum size ’len’.
+*/
 #include "libft.h"
 #include <stdio.h>
 
+/*  1.allocates with malloc
+    2.NULL if allocation fails
+    3.copying to pointer using start as the index and 
+    stopping by the end of s or maximum len
+    4.add NULL to end substring
+*/
 char			*ft_substr(char const *s, unsigned int start, size_t len)
 {
     size_t j;
     int k;
     char* ptr;
-    //allocates with malloc
     ptr = malloc(len*sizeof(char));
-    //NULL if allocation fails
     if (ptr == NULL)
     {
         return(NULL);
     }
-    //copying to pointer using start as the index and stopping by the end of s or maximum len
-    for ( k = (start - 1), j = 0; j < len || !s[k]; k++, j++)       
-    {
+    k = (start - 1);
+	j = 0; 
+	while (j < len && s[k])       
+      {
         ptr[j] = s[k];
+		k++; 
+		j++;
     }
-    //add NULL to end substring
     ptr[j] = '\0';
-     //*check NULL terminate substring?
      return(ptr);
 }

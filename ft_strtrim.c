@@ -21,21 +21,26 @@
 
 #include "libft.h"
 
+/*	1.return NUll if either argument NULL 
+	2.search whether ANY ONE of set matches with the S1 using strchr, moves down s1 
+		until there is no match, s1 no match location is recorded
+	3.find strlen of s1 from position recorded (start of trim area) to the end of 
+		string 
+	4.search whether ANY ONE of set matches with the S1 using strchr, moves up s1 
+		until there is no match, s1 no match location is recorded (end of trim area)
+    5.return trimmed string with substring, substring creates malloc NULL-terminated 
+		string
+*/
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 
-    //return NUll if either argument NULL 
 	if (!s1 || !set)
 		return (0);
-    //search whether ANY ONE of set matches with the S1 using strchr, moves down s1 until there is no match, s1 no match location is recorded
 	while (*s1 && ft_strchr(set, *s1))
 		s1++;
-    //find strlen of s1 from position recorded (start of trim area) to the end of string 
 	i = ft_strlen((char*)s1);
-    //search whether ANY ONE of set matches with the S1 using strchr, moves up s1 until there is no match, s1 no match location is recorded (end of trim area)
 	while (i && ft_strchr(set, s1[i]))
 		i--;
-    //return trimmed string with substring, substring creates malloc NULL-terminated string
 	return (ft_substr(s1, 0, i + 1));
 }

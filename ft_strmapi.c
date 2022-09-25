@@ -10,31 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 /* Synopsis:
-    Apply any string(pointer) function to a copy of the string s, one char at a time, and returning result string 
+    Apply any string(pointer) function to a copy of the string s, 
+	one char at a time, and returning result string 
 ** Description:
     Applies the function ’f’ to each character of the
     string ’s’, and passing its index as first argument
     to create a new string (with malloc(3)) resulting
     from successive applications of ’f’.*/
-
 #include "libft.h"
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+/*	1.return NULL, if s or f is NULL
+	2.copy string s to str and check allocation
+	3.apply function f to str with for loop, then return
+*/
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    unsigned int	i;
+	unsigned int	i;
 	char			*str;
 
-    //return NULL, if s or f is NULL
 	if (!s || !f)
 		return (NULL);
-	//copy string s to str and check allocation
-    str = ft_strdup((char*)s);
+	str = ft_strdup((char *)s);
 	if (!str)
 		return (NULL);
-    //apply function f to str with for loop, then return
-	for (i = 0; !str[i]; i++)
+	i = 0;
+	while (str[i])
 	{
 		str[i] = (*f)(i, str[i]);
+		i++;
 	}
 	return (str);
 }

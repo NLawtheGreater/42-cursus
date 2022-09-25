@@ -10,21 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 size_t	ft_strlcpy(char *dst, char *src, size_t size)
 {
 	unsigned int	i;
 	unsigned int	k;
 
-	k = 0;
-	while (src[++k] != '\0')
-	{
-	}
-	k--;
+	k = ft_strlen(src);
 	i = 0;
-	while (src[i] != '\0' && i < size - 1)
+	while (src[i] != '\0' && i < (size - 1))
 	{
 		dst[i] = src[i];
 		i++;

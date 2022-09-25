@@ -23,7 +23,7 @@ void	ft_putstr_fd(char *character, int fd)
 	int	i;
 
 	i = 0;
-	while(character[i])
+	while (character[i])
 	{
 		write(fd, &character[i], 1);
 		i++;

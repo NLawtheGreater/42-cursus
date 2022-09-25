@@ -12,17 +12,21 @@
 
 #include "libft.h"
 
+/*  1.start looking and moving through *str 1-by-1 until *str=NULL
+    2.Checking whether c is like str, if found return that location in str
+    3.c not found return NULL*/
 
-char *ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
-    int ind1;
-    //start looking and moving through *str 1-by-1 until *str=NULL
-    for ( ind1 = 0; !str[ind1]; ind1++)
-    {
-        //Checking whether c is like str, if found return that location in str
-        if (str[ind1] == (char)(c))
-            return((void*)(str + ind1));
-    }
-    //c not found return NULL
-    return(NULL);
+	char	check;
+
+	check = (char)c;
+	while (*str && check != *str)
+	{
+		str++;
+	}
+	if (check == *str)
+		return ((char *)(str));
+	return (NULL);
 }
+//for ( ind1 = 0; !str[ind1]; ind1++)

@@ -13,25 +13,35 @@
 #include<stdio.h>
 
 
+	//malloc ptr with size of s1+s2
+	//return NULL if allocation fail
+	//copy s1 to ptr with for loop, same positions with i
+	//continue to copy s2 to ptr with for loop
+	//*check NULL terminate string?
+	//return new string
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char*	ptr;
+	char *	ptr;
 	int		i;
 	int		k;
-	//malloc ptr with size of s1+s2
+	
 	ptr = (char *)malloc(sizeof(char)*(ft_strlen((char*)s1)+ft_strlen((char*)s2)));
-	//return NULL if allocation fail
 	if (!ptr)
-		return('\0');
-	//copy s1 to ptr with for loop, same positions with i
-	for (i = 0; !s1[i]; i++) 
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
 		ptr[i] = s1[i];
-	//continue to copy s2 to ptr with for loop
-	for (k = 0; !s2[k]; k++, i++) 
+		i++;
+	} 
+	k = 0; 
+	while (s2[k])
+	{
 		ptr[i] = s2[k];
-	//*check NULL terminate string?
+		k++; 
+		i++;
+	} 
 	ptr[i] = '\0';
-	//return new string
 	return (ptr);
 }
 
@@ -45,4 +55,3 @@ int	main(void)
 	free(tab);
 	return (0);
 }*/
-
