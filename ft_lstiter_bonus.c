@@ -7,7 +7,17 @@ delete the content of a node if needed.
 */
 #include "libft.h"
 
-void ft_lstiter(t_list *lst, void (*f)(void *))
+/*1.create ptr pointer
+**2.point ptr to lst
+**3.go through ptr->next 
+**4.while applying (*f) to each ptr
+*/ 
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-
+	t_list	*ptr;
+	
+	ptr = lst;
+	while (ptr->next != 0)
+		(*f)(ptr);
+        ptr = ptr->next;
 }

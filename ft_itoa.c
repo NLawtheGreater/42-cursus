@@ -18,16 +18,16 @@
 #include "libft.h"
 #include <stdio.h>
 
+/*check if n is 0, only one char needed
+**check if n is negative, add char count if negative
+**check char count with n/10 loop*/
 static int	ft_count(int n)
 {
 	int	i;
 
-    //check if n is 0, only one char needed
     if (n == 0)
 		return (1);
-	//check if n is negative, add char count if negative
     i = (n < 0); 
-	//check char count with n/10 loop
     while (n != 0)
 	{
 		n = n / 10;

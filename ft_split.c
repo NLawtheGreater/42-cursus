@@ -21,6 +21,7 @@
 */
 #include "libft.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 
 /*	1.look through string
@@ -70,18 +71,19 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	trig = -1;
-	while (i <= ft_strlen((char *)s))
+	while (i <= ft_strlen(s))
 	{
 		if (s[i] != c && trig < 0)
 			trig = i;
-        else if ((s[i] == c || i == ft_strlen((char *)s)) && trig >= 0)
+        else if ((s[i] == c || i == ft_strlen(s)) && trig >= 0)
 		{
 			ft_strlcpy(split[j++], (char *)(s+trig), i);
 			trig = -1;
 		}
 		i++;
 	}
-	split[j] = '\0';
+	j++;
+	split[j] = "\0";
 	return (split);
 }
     //return word

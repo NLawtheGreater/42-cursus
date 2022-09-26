@@ -9,13 +9,16 @@ the value of the parameter ’content’. The variable
 #include "libft.h"
 #include <stdio.h>
 
-t_list *ft_lstnew(void *content)
+/*1.initialize node
+**2.memallocate with size of t_list
+**3.Fill in content and next, pointing from *head
+*/
+t_list	*ft_lstnew(void *content)
 {
-    //initialize node
-    t_list *head;
-    //memallocate with size of t_list
+    t_list	*head;
+
     head = malloc(sizeof(t_list));
-    //Fill in content and next, pointing from *head
-    head->content = *content;
+    head->content = content;
     head->next = NULL;
+	return (head);
 }

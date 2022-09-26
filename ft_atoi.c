@@ -12,17 +12,17 @@
 #include "libft.h"
 #include <stdio.h>
 
-static int atoilen(char *snum, int start)
+static int	atoilen(char *snum, int start)
 {
 	int	length;
 
 	length = 0;
 	while (snum[start + length] >= '0' && snum[start + length] <= '9')
-			length++;
+		length++;
 	return (length);
 }
 
-static int ft_power(int power)
+static int	ft_power(int power)
 {
 	if (power == 0)
 		return (1);
@@ -30,61 +30,40 @@ static int ft_power(int power)
 		return (10 * ft_power(power - 1));
 }
 
-static int rec_atoi2(char *str, int start, int negcount)
+static int	rec_atoi(char *str, int start)
 {
 	int	i;
 	int	sigma;
 	int	length;
+	int	negcount;
 
-	if (str[start] == '+')
-		return (rec_atoi2(str, start + 1, negcount));
-	if (str[start] == '-')
-		return (rec_atoi2(str, start + 1, negcount + 1));
+	if (str[start] == ' ' || (str[start] >= 9 && str[start] <= 13))
+		return (rec_atoi(str, start + 1));
+	if (str[start] == '+' || str[start] == '-')
+	{
+		if (str[start] == '-')
+			negcount = -1;
+		start++;
+	}
 	sigma = 0;
 	i = 0;
 	length = atoilen(str, start);
-	if (length == 0)
-		return (0);
-	while (i < length)
+	while (i < length && length != 0)
 	{
 		sigma += (str[start + i] - '0') * ft_power(length - 1 - i);
 		i++;
 	}
-	if (negcount % 2 == 0)
+	if (negcount == 0)
 		return (sigma);
 	else
 		return (-1 * sigma);
 }
 
-static int	rec_atoi(char *str, int start, int negcount)
-{
-	int	i;
-	int	sigma;
-	int	length;
-
-	if (str[start] == ' ' || (str[start] >= 9 && str[start] <= 13))
-		return (rec_atoi(str, start + 1, negcount));
-	if (str[start] == '+')
-		return (rec_atoi2(str, start + 1, negcount));
-	if (str[start] == '-')
-		return (rec_atoi2(str, start + 1, negcount + 1));
-	sigma = 0;
-	i = 0;
-	length = atoilen(str, start);
-	if (length == 0)
-		return (0);
-	while (i < length)
-	{
-		sigma += (str[start + i] - '0') * ft_power(length - 1 - i);
-		i++;
-	}
-	return(sigma);
-}
-
 int	ft_atoi(char *str)
 {
-	return (rec_atoi(str, 0, 0));
+	return (rec_atoi(str, 0));
 }
+
 /*int	ft_atoi(char *str);
 int	main()
 {

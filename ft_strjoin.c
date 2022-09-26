@@ -9,23 +9,29 @@
 /*   Updated: 2022/09/02 17:17:52 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*SYNOPSIS:
+	Return a new string
+**DESCRIPTION:
+	Allocates (with malloc(3)) and returns a new
+	string, which is the result of the concatenation
+	of ’s1’ and ’s2’.*/
 #include "libft.h"
 #include<stdio.h>
 
-
-	//malloc ptr with size of s1+s2
-	//return NULL if allocation fail
-	//copy s1 to ptr with for loop, same positions with i
-	//continue to copy s2 to ptr with for loop
-	//*check NULL terminate string?
-	//return new string
+/*1.malloc ptr with size of s1+s2
+**2.return NULL if allocation fail
+**3.copy s1 to ptr with for loop, same positions with i
+**4.continue to copy s2 to ptr with for loop
+**5.NULL terminate string
+**6.return new string
+*/
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *	ptr;
+	char	*ptr;
 	int		i;
 	int		k;
-	
-	ptr = (char *)malloc(sizeof(char)*(ft_strlen((char*)s1)+ft_strlen((char*)s2)));
+
+	ptr = malloc(sizeof(char) * (ft_strlen(s1)+ft_strlen(s2) + 1));
 	if (!ptr)
 		return (NULL);
 	i = 0;
@@ -33,14 +39,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	{
 		ptr[i] = s1[i];
 		i++;
-	} 
-	k = 0; 
+	}
+	k = 0;
 	while (s2[k])
 	{
 		ptr[i] = s2[k];
-		k++; 
+		k++;
 		i++;
-	} 
+	}
 	ptr[i] = '\0';
 	return (ptr);
 }
