@@ -24,24 +24,21 @@
     stopping by the end of s or maximum len
     4.add NULL to end substring
 */
-char			*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    size_t j;
-    int k;
-    char* ptr;
-    ptr = malloc(len*sizeof(char));
-    if (ptr == NULL)
-    {
-        return(NULL);
-    }
-    k = (start - 1);
-	j = 0; 
-	while (j < len && s[k])       
-      {
-        ptr[j] = s[k];
-		k++; 
-		j++;
-    }
-    ptr[j] = '\0';
-     return(ptr);
+	size_t	j;
+	char	*ptr;
+
+	ptr = malloc((len + 1) * sizeof(char));
+	if (ptr == NULL)
+	{
+		return (NULL);
+	}
+	j = 0;
+	while (j < len && s[start])
+	{
+		ptr[j++] = s[start++];
+	}
+	ptr[j] = '\0';
+	return (ptr);
 }
