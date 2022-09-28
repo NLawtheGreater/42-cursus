@@ -23,15 +23,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 /*	1.look through string
 	2.check if it is not like c & switch is off
 	3.turn switch on, count word
 	4.finds c, turns switch off
+	*check why cannot use memmove or strlcpy??*
 */
 static int	count_words(const char *str, char c)
 {
-	int count;
+	int	count;
 	int	trig;
 
 	count = 0;
@@ -57,7 +57,9 @@ static char	*word_dup(const char *str, int start, int finish)
 
 	i = 0;
 	word = malloc((finish - start + 1) * sizeof(char));
-	ft_strlcpy(word, (str + start), finish);
+	while (start < finish)
+		word[i++] = str[start++];
+	word[i] = '\0';
 	return (word);
 }
 
@@ -74,16 +76,18 @@ char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
-	int	trig;
+	int		trig;
 	char	**split;
 
-	if (!s || !(split = (char **)malloc(sizeof(char *)*(count_words(s, c) + 1))))
+	split = (char **)malloc(sizeof(char *) * \
+		(count_words(s, c) + 1));
+	if (!s || !split)
 		return (NULL);
-	split[count_words(s,c)] = NULL;
+	split[count_words(s, c)] = NULL;
 	i = 0;
 	j = 0;
 	trig = -1;
-	while (i < ft_strlen(s))
+	while (i <= ft_strlen(s))
 	{
 		if (s[i] != c && trig < 0)
 			trig = i;
@@ -94,12 +98,8 @@ char	**ft_split(char const *s, char c)
 		}
 		i++;
 	}
-	j++;
-	split[j] = "\0";
 	return (split);
 }
-				//return word
-				//check if string or memallocation with number of words is NULL, if yes, return NULL
 /*
 #include <stdio.h>
 
@@ -126,4 +126,3 @@ int	main(void)
 	return (0);
 }
 */
-
