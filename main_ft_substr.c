@@ -8,8 +8,6 @@ int	main(void)
 	char	str[] = "lorem ipsum dolor sit amet";
 	char	*strsub;
 
-	strsub = ft_substr(str, 0, 10);
-	printf("%s\n",strsub);
-	strsub = ft_substr(str, 7, 10);
+	strsub = ft_substr(str, 400, 20);
 	printf("%s\n",strsub);
 }

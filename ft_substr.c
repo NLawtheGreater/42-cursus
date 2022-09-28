@@ -19,26 +19,31 @@
 #include <stdio.h>
 
 /*  1.allocates with malloc
-    2.NULL if allocation fails
-    3.copying to pointer using start as the index and 
-    stopping by the end of s or maximum len
-    4.add NULL to end substring
+				2.NULL if allocation fails
+				3.copying to pointer using start as the index and 
+				stopping by the end of s or maximum len
+				4.add NULL to end substring
 */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	j;
+	size_t	len2;
 	char	*ptr;
 
-	ptr = malloc((len + 1) * sizeof(char));
-	if (ptr == NULL)
-	{
+	if (!s)
 		return (NULL);
-	}
-	j = 0;
-	while (j < len && s[start])
+	len2 = ft_strlen(s);
+	if (len2 > len)
+		ptr = malloc((len + 1) * sizeof(char));
+	else
 	{
-		ptr[j++] = s[start++];
+		ptr = malloc((len2 + 1) * sizeof(char));
 	}
+	if (ptr == NULL)
+		return (NULL);
+	j = 0;
+	while (j < len && start < len2)
+		ptr[j++] = s[start++];
 	ptr[j] = '\0';
 	return (ptr);
 }

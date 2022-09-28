@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 /* Synopsis:
-    Represent integer as string
+	Represent integer as string
 ** Description:
-    Allocates (with malloc(3)) and returns a string
+	Allocates (with malloc(3)) and returns a string
 **  representing the integer received as an argument.
 **  Negative numbers must be handled.*/
 #include "libft.h"
@@ -25,10 +25,10 @@ static int	ft_count(int n)
 {
 	int	i;
 
-    if (n == 0)
+	if (n == 0)
 		return (1);
-    i = (n < 0); 
-    while (n != 0)
+	i = (n < 0);
+	while (n != 0)
 	{
 		n = n / 10;
 		i++;
@@ -40,7 +40,7 @@ static int	ft_count(int n)
 	2.malloc with char count and check
 	3.add null
 	4.check negative sign, add negative sign accordingly
-    5.copy unsigned version of n, with if negative check
+	5.copy unsigned version of n, with if negative check
 	6.loop and record int into string, using ASCII representation 
 		of int. Use BOOLEAN result of negative n to control loop
 */
@@ -51,17 +51,17 @@ char	*ft_itoa(int n)
 	char			*res;
 
 	i = ft_count(n) - 1;
-    res = malloc(sizeof(char) * (i + 1));
+	res = malloc(sizeof(char) * (i + 2));
 	if (!res)
 		return (NULL);
-    res[i + 1] = '\0';
-    if (n < 0)
+	res[i + 1] = '\0';
+	if (n < 0)
 		res[0] = '-';
-    if (n < 0)
-		cp = -1*n;
+	if (n < 0)
+		cp = -1 * n;
 	else
 		cp = n;
-    while (i >= (n < 0))
+	while (i >= (n < 0))
 	{
 		res[i] = (cp % 10) + '0';
 		cp /= 10;
