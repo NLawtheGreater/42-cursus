@@ -50,14 +50,25 @@ static int	count_words(const char *str, char c)
 	return (count);
 }
 
+static char	*word_dup(const char *str, int start, int finish)
+{
+	char	*word;
+	int		i;
+
+	i = 0;
+	word = malloc((finish - start + 1) * sizeof(char));
+	ft_strlcpy(word, (str + start), finish);
+	return (word);
+}
+
 /*	1.Search through s using index i
 	2.look for the first instance s[i] is unequal to c: the start of the word.
-	 switch turns on and record position of start of word
+		switch turns on and record position of start of word
 	3.look for the first instances[i] is equal to c (check switch 
 		for on): the end of the word.
 	4.record the word into split with (*check 2d array) 
 	5.switch turns off
-    6.*closes 2d array with NULL, necessary?
+				6.*closes 2d array with NULL, necessary?
 */	
 char	**ft_split(char const *s, char c)
 {
@@ -66,18 +77,19 @@ char	**ft_split(char const *s, char c)
 	int	trig;
 	char	**split;
 
-	if (!s || !(split = malloc((count_words(s, c) + 1) * sizeof(char *))))
+	if (!s || !(split = (char **)malloc(sizeof(char *)*(count_words(s, c) + 1))))
 		return (NULL);
+	split[count_words(s,c)] = NULL;
 	i = 0;
 	j = 0;
 	trig = -1;
-	while (i <= ft_strlen(s))
+	while (i < ft_strlen(s))
 	{
 		if (s[i] != c && trig < 0)
 			trig = i;
-        else if ((s[i] == c || i == ft_strlen(s)) && trig >= 0)
+		else if ((s[i] == c || i == ft_strlen(s)) && trig >= 0)
 		{
-			ft_strlcpy(split[j++], (char *)(s+trig), i);
+			split[j++] = word_dup(s, trig, i);
 			trig = -1;
 		}
 		i++;
@@ -86,8 +98,8 @@ char	**ft_split(char const *s, char c)
 	split[j] = "\0";
 	return (split);
 }
-    //return word
-    //check if string or memallocation with number of words is NULL, if yes, return NULL
+				//return word
+				//check if string or memallocation with number of words is NULL, if yes, return NULL
 /*
 #include <stdio.h>
 

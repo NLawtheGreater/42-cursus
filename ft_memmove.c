@@ -23,23 +23,20 @@ memcpy() leads to problems when strings overlap.*/
 	for (ind = 0; ind < len; ind++)
 1. Copy data from src[] to temp[]
 2. Copy data from temp[] to dst[]*/
+		//temp[ind] = *(char *)(src + ind);
+		//*(char *)(dst + ind) = temp[ind];
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	ind;
+	char	*d;
+	char	*s;
 
-	ind = 0;
-	while (ind < len)
-	{
-		//temp[ind] = *(char *)(src + ind);
-		src = src;
-		ind++;
-	}
-	ind = 0;
-	while (ind < len)
-	{
-		//*(char *)(dst + ind) = temp[ind];
-		ind++;
-	}
+	d = (char *)dst;
+	s = (char *)src;
+	if (src < dst)
+		d[len] = s[len];
+	else
+		while (len--)
+			*d-- = *s--;
 	return (dst);
 }
 

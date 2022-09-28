@@ -22,7 +22,8 @@ Description:
 /*1.check if needle is empty string
 	2.start looking and moving through haystack 1-by-1
 	3.Checking whether needle is like haystack and moving through the whole line
-	4.Check that needle was found and return pointer to first occurrence of needle in haystack
+	4.Check that needle was found and return pointer to first occurrence of 
+		needle in haystack
 	5. len too short or needle not found: return NULL
 */
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
