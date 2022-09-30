@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/30 13:24:28 by niclaw            #+#    #+#             */
+/*   Updated: 2022/09/30 13:24:32 by niclaw           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*DESCRIPTION
     Takes as a parameter a node and frees the memory of
 the node’s content using the function ’del’ given
