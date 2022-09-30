@@ -9,6 +9,7 @@
 /*   Updated: 2022/09/30 13:25:21 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 /*
 Synopsis:
     start new linked list
@@ -26,10 +27,10 @@ the value of the parameter ’content’. The variable
 */
 t_list	*ft_lstnew(void *content)
 {
-    t_list	*head;
+	t_list	*head;
 
-    head = malloc(sizeof(t_list));
-    head->content = content;
-    head->next = NULL;
+	head = malloc(sizeof(t_list));
+	head->content = content;
+	head->next = NULL;
 	return (head);
 }

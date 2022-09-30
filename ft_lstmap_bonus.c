@@ -13,7 +13,7 @@
 /*SYNOPSIS
 	Return new list or NULL if allocation fails
 **DESCRIPTION
-    Iterates the list ’lst’ and applies the function
+	Iterates the list ’lst’ and applies the function
 ’f’ on the content of each node. Creates a new
 list resulting of the successive applications of
 the function ’f’. The ’del’ function is used to
@@ -26,10 +26,10 @@ void (*del)(void *))
 {
 	t_list	*ptr;
 	t_list	*elem;
-	
+
 	if (!f || !del || !lst)
 		return (NULL);
-	elem = 0;
+	ptr = 0;
 	while (lst)
 	{
 		elem = ft_lstnew((*f)(lst->content));

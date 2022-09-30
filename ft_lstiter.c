@@ -23,18 +23,17 @@ delete the content of a node if needed.
 **2.point ptr to lst
 **3.go through ptr->next 
 **4.while applying (*f) to each ptr
-*/ 
+*/
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*ptr;
-	
+
 	if (!lst || !f)
 		return ;
 	ptr = lst;
 	while (ptr)
 	{
 		f(ptr->content);
-        ptr = ptr->next;
+		ptr = ptr->next;
 	}
-        //lst = lst->next;
 }

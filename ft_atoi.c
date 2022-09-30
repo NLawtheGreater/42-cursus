@@ -53,10 +53,10 @@ static int	rec_atoi(char *str, int start)
 		sigma += (str[start + i] - '0') * ft_power(length - 1 - i);
 		i++;
 	}
-	if (negcount == 0)
-		return (sigma);
-	else
+	if (negcount == -1)
 		return (-1 * sigma);
+	else
+		return (sigma);
 }
 
 int	ft_atoi(char *str)

@@ -9,7 +9,6 @@
 /*   Updated: 2022/09/30 13:24:56 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 /*
 **Synopsis:
     Returns the last node of the list.
@@ -27,8 +26,8 @@ t_list	*ft_lstlast(t_list *lst)
 
 	if (!lst)
 		return (NULL);
-    ptr = lst;
+	ptr = lst;
 	while (ptr->next)
-        ptr = ptr->next;
-    return (ptr);
+		ptr = ptr->next;
+	return (ptr);
 }
