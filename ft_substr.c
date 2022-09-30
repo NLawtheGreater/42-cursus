@@ -33,11 +33,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	len2 = ft_strlen(s);
-	if (len2 > len)
+	if ((len2 - start) >= len)
 		ptr = malloc((len + 1) * sizeof(char));
 	else
 	{
-		ptr = malloc((len2 + 1) * sizeof(char));
+		ptr = malloc(((len2 - start) + 1) * sizeof(char));
 	}
 	if (ptr == NULL)
 		return (NULL);
