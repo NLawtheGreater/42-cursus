@@ -28,8 +28,13 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*ptr;
 	
+	if (!lst || !f)
+		return ;
 	ptr = lst;
-	while (ptr->next != 0)
-		(*f)(ptr);
+	while (ptr)
+	{
+		f(ptr->content);
         ptr = ptr->next;
+	}
+        //lst = lst->next;
 }

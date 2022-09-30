@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/30 13:16:59 by niclaw            #+#    #+#             */
+/*   Updated: 2022/09/30 13:17:02 by niclaw           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*Argument:
 **lst: The address of a pointer to a node.
 **del: The address of the function used to delete
@@ -11,14 +23,17 @@ NULL.
 */
 #include "libft.h"
 
-void ft_lstclear(t_list **lst, void (*del)(void
-*))
+void ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	while(lst != 0)
+	t_list	*ptr;
+
+	if (!*lst || !del)
+		return;
+	while(*lst)
 	{
-		(*del)(lst);
-		free(lst->content);
-		lst = lst->next;
+		ptr = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = ptr;
 	}
 	*lst = NULL;
 }

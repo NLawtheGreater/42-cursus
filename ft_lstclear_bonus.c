@@ -23,14 +23,17 @@ NULL.
 */
 #include "libft.h"
 
-void ft_lstclear(t_list **lst, void (*del)(void
-*))
+void ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	while(lst != 0)
+	t_list	*ptr;
+
+	if (!*lst || !del)
+		return;
+	while(*lst)
 	{
-		(*del)(lst);
-		free(lst->content);
-		lst = lst->next;
+		ptr = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = ptr;
 	}
 	*lst = NULL;
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/30 13:16:18 by niclaw            #+#    #+#             */
+/*   Updated: 2022/09/30 13:16:35 by niclaw           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*PARAMETER:
 **	lst:The address of a pointer to the first link of
 	a list.
@@ -14,10 +26,18 @@
 */
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *ptr;
+	if (new)
+	{
+		t_list *ptr;
 
-	ptr = ft_lstlast(*lst);
-	ptr->next = new;
-	ptr = ptr->next;
-	ptr->next = NULL;
+		if (!*lst)
+		{
+			*lst = new;
+		}
+		else
+		{
+			ptr = ft_lstlast(*lst);
+			ptr->next = new;
+		}
+	}
 }

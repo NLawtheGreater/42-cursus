@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/30 13:24:42 by niclaw            #+#    #+#             */
+/*   Updated: 2022/09/30 13:24:45 by niclaw           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
     Iterates the list ’lst’ and applies the function
 ’f’ on the content of each node. Creates a new
@@ -16,8 +28,13 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*ptr;
 	
+	if (!lst || !f)
+		return ;
 	ptr = lst;
-	while (ptr->next != 0)
-		(*f)(ptr);
+	while (ptr)
+	{
+		f(ptr->content);
         ptr = ptr->next;
+	}
+        //lst = lst->next;
 }
