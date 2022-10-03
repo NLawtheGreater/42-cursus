@@ -21,6 +21,16 @@ delete the content of a node if needed.
 */
 #include "libft.h"
 
+/*1.check if either argument void, if yes end
+**2.create list pointer and element pointer (ptr & elem) 
+**3.initialize ptr with 0 to give address 
+**4.loop checking lst as end of original list
+**5.Use ft_lstnew on result of (f)(content), and store in element
+**6.check element, if void. then clear ptr with ft_lstclear.
+	Then returning NULL (new list creation fail)
+**7.Add element to ptr using ft_lstadd_back
+**8.scroll through lst with lst->next
+**9.return pointer to new list*/ 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),
 void (*del)(void *))
 {

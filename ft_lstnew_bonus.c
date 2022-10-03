@@ -13,6 +13,8 @@
 /*
 Synopsis:
     start new linked list
+Parameter	
+	content:content to create the node with
 Description:
     Allocates (with malloc(3)) and returns a new node.
 The member variable ’content’ is initialized with

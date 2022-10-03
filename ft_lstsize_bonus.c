@@ -12,11 +12,15 @@
 /*
 **Synopsis:
 	Counts the number of nodes in a list.
+**Parameter:
+**	The begining of the list
 */
 #include "libft.h"
 
-/*1.assign start of list to ptr
+/*1.Check if list is void, if yes return 0 (0 size)
+**2.assign start of list to ptr
 **2.cycle through node pointer with linker, while counting
+	checking for the NULL link
 **3.return count
 */
 int	ft_lstsize(t_list *lst)

@@ -14,11 +14,14 @@
 the node’s content using the function ’del’ given
 as a parameter and free the node. The memory of
 ’next’ must not be freed.
+**PARAMETER:
+**	lst: node to free
+**	del: the address of funciton used to delete
 */
 #include "libft.h"
 
 /*1.apply del to the node 
-**2.Free memory of node, but not 'next'
+**2.Free memory of node
 */
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {

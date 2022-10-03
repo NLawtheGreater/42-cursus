@@ -20,9 +20,13 @@
 */
 #include "libft.h"
 
-/*1.record the last node of the list lst in the ptr 
-**2.point the last node link to the new last node link
-**3.point the new last node link to NULL
+/*1.Check pointers, start with new, then lst
+**2.Check if the list given is void, if yes
+**	link list to new, new is the only node
+**3.record the last node of the list lst in the ptr
+**	with ft_lstlast
+**4.point the last node link to the new last node given
+**5.*check: It is assumed that new node already has ->next = NULL
 */
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {

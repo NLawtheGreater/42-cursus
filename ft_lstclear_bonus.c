@@ -23,6 +23,14 @@ NULL.
 */
 #include "libft.h"
 
+/*1.check if either argument void, if yes end
+**2.Loop until list is NULL (end list)
+**3.Store address of next node in temp pointer
+**4.Delete node with ft_lstdelone 
+**	link address will be deleted, but stored in ptr
+**5.Move *lst, by copying next address of temp pointer.
+**6.Finally, the pointer is set to NULL.*/ 
+
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*ptr;

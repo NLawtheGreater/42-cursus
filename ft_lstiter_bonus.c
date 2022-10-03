@@ -10,19 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
+/*Synopsis:
     Iterates the list ’lst’ and applies the function
-’f’ on the content of each node. Creates a new
-list resulting of the successive applications of
-the function ’f’. The ’del’ function is used to
-delete the content of a node if needed.
+’f’ on the content of each node.
+**PARAMETER:
+**	lst: Address of pointer to node
+**	f: address of function to iterate on the list 
 */
 #include "libft.h"
 
-/*1.create ptr pointer
-**2.point ptr to lst
-**3.go through ptr->next 
-**4.while applying (*f) to each ptr
+/*1.check if either argument void, if yes end
+**2.create ptr pointer, assign ptr to lst address
+**3.go through ptr->next until last node (!ptr) 
+**4.while applying (*f) to content of each node (ptr)
 */
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
@@ -33,7 +33,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	ptr = lst;
 	while (ptr)
 	{
-		f(ptr->content);
+		(*f)(ptr->content);
 		ptr = ptr->next;
 	}
 }
