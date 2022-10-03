@@ -28,13 +28,18 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	j;
 	size_t	len2;
+	size_t	len3;
 	char	*ptr;
 
 	if (!s)
 		return (NULL);
 	len2 = ft_strlen(s);
-	if (len >= ft_strlen((s + start)))
-		ptr = malloc((ft_strlen((s + start)) + 1) * sizeof(char));
+	if (len2 > start)
+		len3 = len2 - start;
+	else
+		len3 = 0;
+	if (len >= len3))
+		ptr = malloc((len3 + 1) * sizeof(char));
 	else
 	{
 		ptr = malloc((len + 1) * sizeof(char));
