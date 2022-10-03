@@ -9,10 +9,13 @@ int	main(void)
 char *dst;
 char *src;
 
-dst = NULL;
+dst = "bitch";
 src = NULL;
 
-ft_memcpy(dst, src, 0);
-write(1, dst, 5);
+//ft_memcpy(NULL, NULL, 3);
+//write(1, , 5);
+//write(1, "\n", 1);
+ft_memcpy(dst, src, 3);
+//write(1, dst, 5);
 return (0);
 }

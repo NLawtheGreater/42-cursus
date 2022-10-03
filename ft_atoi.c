@@ -30,12 +30,22 @@ static int	ft_power(int power)
 		return (10 * ft_power(power - 1));
 }
 
+static int	overlength(int negcount, const char *str, int i, long long sigma)
+{
+	if ((negcount == -1) && ((sigma > 9223372036854775807 / 10)
+			|| (sigma == 9223372036854775807 / 10 && str[i] - '0' > 8)))
+		return (0);
+	else if ((negcount == 1) && ((sigma > 9223372036854775807 / 10)
+			|| (sigma == 9223372036854775807 / 10 && str[i] - '0' > 7)))
+		return (-1);
+	return (0);
+}
 static int	rec_atoi(char *str, int start)
 {
-	int	i;
-	int	sigma;
-	int	length;
-	int	negcount;
+	int			i;
+	long long	sigma;
+	int			length;
+	int			negcount;
 
 	if (str[start] == ' ' || (str[start] >= 9 && str[start] <= 13))
 		return (rec_atoi(str, start + 1));
@@ -50,6 +60,9 @@ static int	rec_atoi(char *str, int start)
 	length = atoilen(str, start);
 	while (i < length && length != 0)
 	{
+		if (sigma > 9223372036854775807 / 10 || (sigma == 9223372036854775807 / 10\
+			&& str[start + i] - '0' > 7))
+				return (overlength(negcount, str, start + i, sigma));
 		sigma += (str[start + i] - '0') * ft_power(length - 1 - i);
 		i++;
 	}
