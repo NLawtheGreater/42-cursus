@@ -14,7 +14,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-//*check* list structure
 typedef struct s_list
 {
 	void			*content;
