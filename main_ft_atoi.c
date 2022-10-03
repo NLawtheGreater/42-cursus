@@ -6,8 +6,12 @@
 
 int	main(void)
 {
-	printf("%d\n",atoi("+-54"));
-	printf("%d\n",atoi("-+48"));
-	printf("%d\n",atoi("--47"));
-	printf("%d\n",atoi("++47"));
+	printf("lib atoi = %d\n",atoi("-192233720368547759000"));
+	printf("lib atoi = %d\n",atoi("+192233720368547759000"));
+	printf("lib atoi = %d\n",atoi("-47"));
+	printf("lib atoi = %d\n",atoi("+47"));
+	printf("ft_atoi = %d\n",ft_atoi("-192233720368547759000"));
+	printf("ft_atoi = %d\n",ft_atoi("+192233720368547759000"));
+	printf("ft_atoi = %d\n",ft_atoi("-47"));
+	printf("ft_atoi = %d\n",ft_atoi("+47"));
 }
