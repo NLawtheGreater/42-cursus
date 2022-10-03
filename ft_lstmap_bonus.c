@@ -46,6 +46,8 @@ void (*del)(void *))
 		if (!elem)
 		{
 			ft_lstclear(&ptr, del);
+			free (elem);
+			free (ptr);
 			return (NULL);
 		}
 		ft_lstadd_back(&ptr, elem);
