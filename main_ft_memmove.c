@@ -21,7 +21,7 @@ printf("%d\n",dest < src);*/
 
 char *src = NULL;
 char *dst = NULL;
-dst = memmove(dst, src, 8);
+dst = ft_memmove(dst, src, 8);
 write(1, dst, 22);
 write(1, "\n", 1);
 
