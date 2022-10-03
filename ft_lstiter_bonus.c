@@ -17,7 +17,7 @@
 **	lst: Address of pointer to node
 **	f: address of function to iterate on the list 
 */
-#include "libft.h"
+#include "libft_bonus.h"
 
 /*1.check if either argument void, if yes end
 **2.create ptr pointer, assign ptr to lst address

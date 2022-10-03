@@ -21,7 +21,7 @@ and free(3).
 Finally, the pointer to the list must be set to
 NULL.
 */
-#include "libft.h"
+#include "libft_bonus.h"
 
 /*1.check if either argument void, if yes end
 **2.Loop until list is NULL (end list)

@@ -15,7 +15,7 @@
 **PARAMETER:
 **	lst: the begining of the list
 */
-#include "libft.h"
+#include "libft_bonus.h"
 
 /*1.check if lst is void, return NULL if yes
 **2.creating ptr, point to node given

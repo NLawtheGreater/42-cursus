@@ -20,7 +20,7 @@ Description:
 The member variable ’content’ is initialized with
 the value of the parameter ’content’. The variable
 ’next’ is initialized to NULL.*/
-#include "libft.h"
+#include "libft_bonus.h"
 #include <stdio.h>
 
 /*1.initialize node

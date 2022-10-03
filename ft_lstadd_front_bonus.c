@@ -17,7 +17,7 @@
 **Description:
     Adds the node ’new’ at the beginning of the list.
 */
-#include "libft.h"
+#include "libft_bonus.h"
 
 /*1.Check pointers, start with new, then lst
 **2.If lst is void, then point *lst (as the pointer to the first link)

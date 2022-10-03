@@ -29,6 +29,7 @@ SRCS	= ${addprefix ${SRCDIR}, ${SRCLIST}}
 OBJS	= ${SRCS:.c=.o}
 BONUS_OBJS = ${BONUS_SRC:.c=.o}
 INCH	= libft.h
+INCHB	= libft_bonus.h
 
 CC	= gcc
 
@@ -40,6 +41,9 @@ NAME	= libft.a
 
 %.o: %.c ${INCH}
 	${CC} ${CFLAGS} -include ${INCH} -c $< -o ${<:.c=.o}
+
+%bonus.o:	%bonus.c ${INCHB}
+	${CC} ${CFLAGS} -include ${INCHB} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 	ar -crs ${NAME} ${OBJS}

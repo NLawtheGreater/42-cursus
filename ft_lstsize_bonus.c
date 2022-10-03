@@ -15,7 +15,7 @@
 **Parameter:
 **	The begining of the list
 */
-#include "libft.h"
+#include "libft_bonus.h"
 
 /*1.Check if list is void, if yes return 0 (0 size)
 **2.assign start of list to ptr

@@ -18,7 +18,7 @@
 **SYNOPSIS:
     Adds the node ’new’ at the end of the list.
 */
-#include "libft.h"
+#include "libft_bonus.h"
 
 /*1.Check pointers, start with new, then lst
 **2.Check if the list given is void, if yes

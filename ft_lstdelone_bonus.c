@@ -18,7 +18,7 @@ as a parameter and free the node. The memory of
 **	lst: node to free
 **	del: the address of funciton used to delete
 */
-#include "libft.h"
+#include "libft_bonus.h"
 
 /*1.apply del to the node 
 **2.Free memory of node

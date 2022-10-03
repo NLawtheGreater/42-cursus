@@ -19,7 +19,7 @@ list resulting of the successive applications of
 the function ’f’. The ’del’ function is used to
 delete the content of a node if needed.
 */
-#include "libft.h"
+#include "libft_bonus.h"
 
 /*1.check if either argument void, if yes end
 **2.create list pointer and element pointer (ptr & elem) 
