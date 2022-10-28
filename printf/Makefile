@@ -67,10 +67,10 @@ re:	fclean all
 bonus: all
 
 test:	
-	${CC} ${CFLAGS} -include ${INCH} -I ${LIBDIR} playground.c ${NAME} -o playground
+	${CC} -g -Wall -Wextra -include ${INCH} -I ${LIBDIR} playground.c ${NAME} -o playground
 	./playground
 
 mem: 
-	${CC} ${CFLAGS} -include ${INCH} -I ${LIBDIR} playground.c ${NAME} -o playground
+	${CC} -g -Wall -Wextra -include ${INCH} -I ${LIBDIR} playground.c ${NAME} -o playground
 	./playground
 	valgrind -v --leak-check=full ./playground

@@ -10,15 +10,15 @@ char	*conversion_s(char *s)
 {
 	char	*str;
 
-	if (s)
-		str = ft_calloc(sizeof(char), ft_strlen(s) + 1);
-	else
+	if (!s)
 		str = ft_calloc(sizeof(char), 6 + 1);
+	else
+		str = ft_calloc(sizeof(char), ft_strlen(s) + 1);
 	if (!str)
 		return (NULL);
-	if (s)
-		str = ft_memcpy(str, s, ft_strlen(s));
+	if (!s)
+		str = ft_memcpy(str, "(null)", 6);
 	else
-		str = ft_memcpy(str, NULL, 6);
+		str = ft_memcpy(str, s, ft_strlen(s));
 	return (str);
 }
