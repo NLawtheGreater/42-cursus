@@ -6,7 +6,7 @@
 /*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:25:04 by niclaw            #+#    #+#             */
-/*   Updated: 2022/09/30 13:25:07 by niclaw           ###   ########.fr       */
+/*   Updated: 2022/10/28 21:28:21 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ delete the content of a node if needed.
 	Then returning NULL (new list creation fail)
 **7.Add element to ptr using ft_lstadd_back
 **8.scroll through lst with lst->next
-**9.return pointer to new list*/ 
+**9.return pointer to new list*/
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),
 void (*del)(void *))
 {

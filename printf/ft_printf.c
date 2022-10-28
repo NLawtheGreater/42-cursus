@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/28 21:24:06 by niclaw            #+#    #+#             */
+/*   Updated: 2022/10/28 22:25:19 by niclaw           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include "libft.h"
 
@@ -26,7 +38,7 @@ static char	*get_format_str(const char *str, t_format *f)
 	{
 		if (!set_format1(str[i], f))
 		{
-			break;
+			break ;
 		}
 		format = set_format2(format, str[i], i);
 		if (!str)
@@ -65,17 +77,10 @@ static int	print_format(va_list ptr, t_format *f)
 **5.if % get formatting with get_format_str
 **6.If format has content, print format with print function
 **7. free the memory after printing*/
-int	ft_printf(const char *str, ...)
+static void	ft_printf2(const char *str, va_list ptr, t_format form, int *len)
 {
-	va_list	ptr;
-	char	*format;
-	int		len;
-	t_format	form;
-	
-	if (str == NULL)
-		return (0);
-	va_start(ptr, str);
-	len = 0;
+	char		*format;
+
 	while (*str != '\0')
 	{
 		if (*str == '%')
@@ -83,7 +88,7 @@ int	ft_printf(const char *str, ...)
 			format = get_format_str(str, &form);
 			if (format)
 			{
-				len += print_format(ptr, &form);
+				*len += print_format(ptr, &form);
 				str += ft_strlen(format);
 				free (format);
 			}
@@ -93,10 +98,23 @@ int	ft_printf(const char *str, ...)
 		else
 		{
 			write(1, str, 1);
-			len += 1;
+			*len++;
 			str++;
 		}
 	}
+}
+
+int	ft_printf(const char *str, ...)
+{
+	va_list		ptr;
+	int			len;
+	t_format	form;
+
+	len = 0;
+	if (str == NULL)
+		return (0);
+	va_start(ptr, str);
+	ft_printf2(str, ptr, form, &len);
 	va_end(ptr);
 	return (len);
 }

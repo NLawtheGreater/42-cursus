@@ -6,7 +6,7 @@
 /*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:16:59 by niclaw            #+#    #+#             */
-/*   Updated: 2022/09/30 13:17:02 by niclaw           ###   ########.fr       */
+/*   Updated: 2022/10/28 21:29:09 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ NULL.
 **4.Delete node with ft_lstdelone 
 **	link address will be deleted, but stored in ptr
 **5.Move *lst, by copying next address of temp pointer.
-**6.Finally, the pointer is set to NULL.*/ 
+**6.Finally, the pointer is set to NULL.*/
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {

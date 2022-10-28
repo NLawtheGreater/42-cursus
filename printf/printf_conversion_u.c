@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   printf_conversion_u.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/28 21:22:24 by niclaw            #+#    #+#             */
+/*   Updated: 2022/10/28 21:41:40 by niclaw           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include "libft.h"
 
 static int	uilen(unsigned int d);
+
 /*1.allocate memory equal to length of digits + 1
 **	and check allocation
 **2.assign '\0' to last position

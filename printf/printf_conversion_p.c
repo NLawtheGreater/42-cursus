@@ -1,26 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   printf_conversion_p.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/28 21:21:23 by niclaw            #+#    #+#             */
+/*   Updated: 2022/10/28 21:39:53 by niclaw           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include "libft.h"
 
-
-/*1.Check if ptr is a void pointer, calloc to *pstr the standard 
-** empty length + 1 and check *pstr allocation
-**2.Copy the standard "empty pointer" to *pstr
-**	and return.
-**3.*check**/
+/*1.allocate prtr size of 3 to place '0''x'
+**2.Hex convert size_t casted pointer address and place in hex string
+**3.return NULL if allocation fails
+**4.Join 2 strings with strjoin into pstr (function allocates)
+**5.free prestring and hes
+**6.Return pstr*/
 char	*conversion_p(size_t ptr)
 {
 	char	*hex;
 	char	*prestr;
-	char	*pstr;
 
-	/*if (!ptr)
-	{
-		pstr = ft_calloc(sizeof(char), P_EMPTY_L + 1);
-		if (!pstr)
-			return (NULL);
-		pstr = ft_memcpy(pstr, P_EMPTY, P_EMPTY_L);
-		return (pstr);
-	}*/
 	prestr = ft_calloc(sizeof(char), 3);
 	if (!prestr)
 		return (NULL);

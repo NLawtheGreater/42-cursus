@@ -6,12 +6,12 @@
 /*   By: niclaw <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 16:13:29 by niclaw            #+#    #+#             */
-/*   Updated: 2022/09/02 16:13:31 by niclaw           ###   ########.fr       */
+/*   Updated: 2022/10/28 21:30:48 by niclaw           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 #include <stdio.h>
-# include <stdint.h>
+#include <stdint.h>
 
 /*1.using malloc to allocate memory
 **2.check memory allocation, returns NULL if fail

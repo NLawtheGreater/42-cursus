@@ -6,11 +6,11 @@
 #    By: niclaw <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/24 13:59:17 by niclaw            #+#    #+#              #
-#    Updated: 2022/10/28 13:25:20 by niclaw           ###   ########.fr        #
+#    Updated: 2022/10/28 21:23:52 by niclaw           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCLIST	=   test.c ft_printf.c  printf_conversion_x.c printf_conversion_u.c \
+SRCLIST	=   printf_format.c ft_printf.c  printf_conversion_x.c printf_conversion_u.c \
 			printf_conversion_type.c printf_conversion_s.c printf_conversion_p.c \
 			printf_conversion_d.c printf_conversion_c.c 
 SRCDIR	= 
