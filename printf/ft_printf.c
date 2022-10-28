@@ -87,6 +87,8 @@ int	ft_printf(const char *str, ...)
 				str += ft_strlen(format);
 				free (format);
 			}
+			else
+				str++;
 		}
 		else
 		{
