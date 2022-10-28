@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "libft.h"
 #include <stdio.h>
+# include <stdint.h>
 
 /*1.using malloc to allocate memory
 **2.check memory allocation, returns NULL if fail

@@ -38,7 +38,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len3 = len2 - start;
 	else
 		len3 = 0;
-	if (len >= len3))
+	if (len >= len3)
 		ptr = malloc((len3 + 1) * sizeof(char));
 	else
 	{

@@ -10,44 +10,67 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCLIST	= 
+SRCLIST	=   test.c ft_printf.c printf_printing.c printf_conversion_x.c printf_conversion_u.c \
+			printf_conversion_type.c printf_conversion_s.c printf_conversion_p.c \
+			printf_conversion_d.c printf_conversion_c.c 
 SRCDIR	= 
+BUILD =	./build/
+OBJS	=	${SRCS:%.c=%.o}
+BONUS_OBJS = ${BONUS_SRC:.c=.o}
+INCH	= ft_printf.h 
+INCHB	= 
+LIBFT	= ${LIBDIR}/libft.a
+LIBDIR	= ./libft
+LIB_SRC= ${addprefix ${LIBDIR}, ${LIBFT}}
 BONUS_SRC	=  
 SRCS	= ${addprefix ${SRCDIR}, ${SRCLIST}}
-
-OBJS	= ${SRCS:.c=.o}
-BONUS_OBJS = ${BONUS_SRC:.c=.o}
-INCH	= printf.h
-INCHB	= libft_bonus.h
+LIB_OBJS = ${LIB_SRC: .c=.o}
 
 CC	= gcc
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -g -Wall -Wextra -Werror
 
 RM	= rm -f
 
 NAME	= libftprintf.a
 
-%.o: %.c ${INCH}
-	${CC} ${CFLAGS} -include ${INCH} -c $< -o ${<:.c=.o}
+%.o:	%.c ${INCH} ${LIBDIR}
+	@mkdir -p ${BUILD}
+	${CC} ${CFLAGS} -include ${INCH} -I ${LIBDIR}\
+	 -c $< -o ${addprefix ${BUILD}, ${<:.c=.o}}
 
 %bonus.o:	%bonus.c ${INCHB}
 	${CC} ${CFLAGS} -include ${INCHB} -c $< -o ${<:.c=.o}
 
-${NAME}:	${OBJS}
-	ar -crs ${NAME} ${OBJS}
+${LIBFT}:
+	make -C ${LIBDIR}
+	cp ${LIBFT} ${NAME}
+
+${NAME}:	${OBJS} ${LIBFT}
+	ar -crs ${NAME} ${addprefix ${BUILD}, ${OBJS}}
+	@echo "Linking Done!" 
 
 all:	${NAME}
 
 clean:
-	${RM} ${OBJS} ${BONUS_OBJS}
+	${RM} -r ${BUILD}
+	make clean -C ${LIBDIR} 
 
-fclean: clean
-	${RM} ${NAME} 
+fclean:	clean
+	${RM} ${NAME}
+	make fclean -C ${LIBDIR} 
 
 re:	fclean all
 
 .PHONY:	all clean fclean re  
 
-bonus: ${BONUS_OBJS}
-	ar -crs ${NAME} ${BONUS_OBJS}
+bonus: all
+
+test:	
+	${CC} ${CFLAGS} -include ${INCH} -I ${LIBDIR} playground.c ${NAME} -o playground
+	./playground
+
+mem: 
+	${CC} ${CFLAGS} -include ${INCH} -I ${LIBDIR} playground.c ${NAME} -o playground
+	./playground
+	valgrind -v --leak-check=full ./playground

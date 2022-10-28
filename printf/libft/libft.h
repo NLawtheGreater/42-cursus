@@ -20,6 +20,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+void	*ft_realloc(void *ptr, size_t size);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);

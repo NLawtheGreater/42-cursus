@@ -1,15 +1,20 @@
-#include "printf.h"
+#include "ft_printf.h"
+#include "libft.h"
 
-/*Check if character is one of the format types "cspdiuxX%", 
-**	using string to string compare*/
-int	is_type(char c)
+
+/*Check if character is one of the format types "cspdiuxX%" 
+**(defined), using string to string compare*/
+static int	is_type(char c)
 {
 	char	*ptr;
 
 	ptr = F_TYPE;
 	while (*ptr)
+	{
 		if (*ptr++ == c)
 			return (1);
+	}
+	free(ptr);
 	return (0);
 }
 
@@ -27,8 +32,9 @@ void	reset_format(t_format *f)
 	f->type = 0;
 }
 
-/*1.Mark different format flags, using defined structure*/
-int	set_format1(char c, va_list ptr, t_format *f)
+/*1.Mark different format flags, using defined structure
+**2.Return int to confirm if the character is a recognized flag*/
+int	set_format1(char c, t_format *f)
 {
 	if (f->dot && ft_isdigit(c))
 		f->pcs = (f->pcs * 10) + (c - '0');
@@ -56,15 +62,18 @@ int	set_format1(char c, va_list ptr, t_format *f)
 /*1.If start of % string allocate with size i + 2
 **2.If continuation after '%' reallocate with size i + 2
 **3.Check allocation in both cases
-**4.pass character into format*/
+**4.Record character here
+**5.return pointer to start of string*/
 char	*set_format2(char *format, char c, int i)
 {
+	
 	if (!format)
-		format = ft_calloc(sizeof(char), i + 2);
+		format = (char *) ft_calloc(sizeof(char), i + 2);
 	else
-		format = ft_realloc(format, i + 2);
+		format = (char *) ft_realloc(format, i + 2);
 	if (!format)
 		return (NULL);
 	format[i] = c;
+	format[i + 1] = '\0';
 	return (format);
 }
