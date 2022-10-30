@@ -98,7 +98,7 @@ static void	ft_printf2(const char *str, va_list ptr, t_format form, int *len)
 		else
 		{
 			write(1, str, 1);
-			*len++;
+			*len += 1;
 			str++;
 		}
 	}

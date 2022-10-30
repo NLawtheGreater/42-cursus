@@ -23,6 +23,7 @@ char	*conversion_p(size_t ptr)
 {
 	char	*hex;
 	char	*prestr;
+	char	*pstr;
 
 	prestr = ft_calloc(sizeof(char), 3);
 	if (!prestr)
