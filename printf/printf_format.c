@@ -13,7 +13,6 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-
 /*Check if character is one of the format types "cspdiuxX%" 
 **(defined), using string to string compare*/
 static int	is_type(char c)
@@ -78,7 +77,6 @@ int	set_format1(char c, t_format *f)
 **5.return pointer to start of string*/
 char	*set_format2(char *format, char c, int i)
 {
-	
 	if (!format)
 		format = (char *) ft_calloc(sizeof(char), i + 2);
 	else

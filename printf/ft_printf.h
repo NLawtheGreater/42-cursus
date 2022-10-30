@@ -31,7 +31,7 @@ typedef struct s_format
 
 # define F_TYPE "cspdiuxX%"
 
-int		ft_printf(const char *, ...);
+int		ft_printf(const char *str, ...);
 void	reset_format(t_format *f);
 int		set_format1(char c, t_format *f);
 char	*set_format2(char *format, char c, int i);
