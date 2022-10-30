@@ -77,7 +77,7 @@ static int	print_format(va_list ptr, t_format *f)
 **5.if % get formatting with get_format_str
 **6.If format has content, print format with print function
 **7. free the memory after printing*/
-static void	ft_printf2(const char *str, va_list ptr, t_format form, int *len)
+static void	ft_printf2(const char *str, va_list ptr, t_format *f, int *len)
 {
 	char		*format;
 
@@ -85,10 +85,10 @@ static void	ft_printf2(const char *str, va_list ptr, t_format form, int *len)
 	{
 		if (*str == '%')
 		{
-			format = get_format_str(str, &form);
+			format = get_format_str(str, f);
 			if (format)
 			{
-				*len += print_format(ptr, &form);
+				*len += print_format(ptr, f);
 				str += ft_strlen(format);
 				free (format);
 			}
@@ -114,7 +114,7 @@ int	ft_printf(const char *str, ...)
 	if (str == NULL)
 		return (0);
 	va_start(ptr, str);
-	ft_printf2(str, ptr, form, &len);
+	ft_printf2(str, ptr, &form, &len);
 	va_end(ptr);
 	return (len);
 }
